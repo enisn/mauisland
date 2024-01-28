@@ -7,45 +7,22 @@ namespace MAUIsland;
 public partial class LiveCharts2PageViewModel : NavigationAwareBaseViewModel
 {
     #region [ CTor ]
-    public LiveCharts2PageViewModel(
-        IAppNavigator appNavigator
-    ) : base(appNavigator)
+    public LiveCharts2PageViewModel( IAppNavigator appNavigator ) 
+        : base(appNavigator)
     {
+        LoadLiveChartDesign();
     }
     #endregion
 
+    #region [ LiveCharts Properties ]
+    public ISeries[] Series { get; set; }
+
+    public Axis[] XAxes { get; set; }
+    #endregion
+
     #region [ Properties ]
-    [ObservableProperty]
+    [ObservableProperty]    
     IGalleryCardInfo controlInformation;
-
-    public ISeries[] Series { get; set; } =
-    {
-        new ColumnSeries<double>
-        {
-            Name = "Mary",
-            Values = new double[] { 2, 5, 4 }
-        },
-        new ColumnSeries<double>
-        {
-            Name = "Ana",
-            Values = new double[] { 3, 1, 6 }
-        }
-    };
-
-    public Axis[] XAxes { get; set; } =
-    {
-        new Axis
-        {
-            Labels = new string[] { "Category 1", "Category 2", "Category 3" },
-            LabelsRotation = 0,
-            SeparatorsPaint = new SolidColorPaint(new SKColor(200, 200, 200)),
-            SeparatorsAtCenter = false,
-            TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35)),
-            TicksAtCenter = true,
-            ForceStepToMin = true,
-            MinStep = 1
-        }
-    };
 
     [ObservableProperty]
     string setupDescription =
@@ -81,7 +58,6 @@ public partial class LiveCharts2PageViewModel : NavigationAwareBaseViewModel
         ControlInformation = query.GetData<IGalleryCardInfo>();
 
         LoadDataAsync().FireAndForget();
-
     }
     #endregion
 
@@ -100,6 +76,40 @@ public partial class LiveCharts2PageViewModel : NavigationAwareBaseViewModel
     #region [ Data ]
     private async Task LoadDataAsync()
     {
+    }
+    #endregion
+
+    #region [ LiveChart Designs ]
+    private void LoadLiveChartDesign()
+    {
+        Series = new[]
+        {
+            new ColumnSeries<double>
+            {
+                Name = "Mary",
+                Values = new double[] { 2, 5, 4 }
+            },
+            new ColumnSeries<double>
+            {
+                Name = "Ana",
+                Values = new double[] { 3, 1, 6 }
+            }
+        };
+        XAxes = new[]
+        {
+            new Axis()
+            {
+                Labels = new string[] { "Category 1", "Category 2", "Category 3" },
+                LabelsRotation = 0,
+                SeparatorsPaint = new SolidColorPaint(new SKColor(200, 200, 200)),
+                SeparatorsAtCenter = false,
+                TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35)),
+                TicksAtCenter = true,
+                ForceStepToMin = true,
+                MinStep = 1
+            }
+        };
+
     }
     #endregion
 }

@@ -26,13 +26,13 @@
 
         <x:Array x:Key="CartesianChartPropertiesItemsSource" Type="{x:Type x:String}">
             <x:String>
-                <![CDATA[   <strong style="color:blue">Series</strong> .   ]]>
+                <![CDATA[   <strong style="color:blue">Series</strong> property of a <strong style="color:blue">CartesianChart</strong> control in .NET MAUI is used to specify the data source that you want to bind to the chart. This property can be set to the name of the data source that you want to use. Additionally, the type of series that you want to use to create different types of charts.   ]]>
             </x:String>
             <x:String>
-                <![CDATA[   <strong style="color:blue">XAxes</strong> .  ]]>
+                <![CDATA[   <strong style="color:blue">XAxes</strong> XAxes property of a <strong style="color:blue">CartesianChart</strong> control in .NET MAUI are used to specify the type of axis that you want to use for the X dimensions of the chart.  ]]>
             </x:String>
             <x:String>
-                <![CDATA[   <strong style="color:blue">YAxes</strong> .  ]]>
+                <![CDATA[   <strong style="color:blue">YAxes</strong> XAxes property of a <strong style="color:blue">CartesianChart</strong> control in .NET MAUI are used to specify the type of axis that you want to use for the Y dimensions of the chart.  ]]>
             </x:String>
             <x:String>
                 <![CDATA[   <strong style="color:blue">TooltipPosition</strong> .   ]]>
