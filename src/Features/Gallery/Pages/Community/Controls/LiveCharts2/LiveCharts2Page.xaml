@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:app="clr-namespace:MAUIsland"
-    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    xmlns:lc2="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
     Title="LiveCharts2"
     Padding="10"
     x:DataType="app:LiveCharts2PageViewModel">
@@ -17,20 +17,103 @@
             Text="Source code" />
     </app:BasePage.ToolbarItems>
 
+    <app:BasePage.Resources>
+        <x:Array x:Key="CartesianChartControlInfo" Type="{x:Type x:String}">
+            <x:String>
+                <![CDATA[   The <strong style="color:blue">CartesianChart</strong> control is a 'ready to go' control to create plots using the <strong style="color:blue">Cartesian coordinate system</strong>, To get started all you need to do is assign the <strong style="color:blue">Series</strong> property with a collection of <strong style="color:blue">ICartesianSeries</strong>.   ]]>
+            </x:String>
+        </x:Array>
+
+        <x:Array x:Key="CartesianChartPropertiesItemsSource" Type="{x:Type x:String}">
+            <x:String>
+                <![CDATA[   <strong style="color:blue">Series</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">XAxes</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">YAxes</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">TooltipPosition</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">TooltipFindingStrategy</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">TooltipTextPaint</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">TooltipTextSize</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">ZoomMode</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">ZoomingSpeed</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">AnimationsSpeed</strong> .   ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">EasingFunction</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">DrawMargin</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">LegendPosition</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">LegendBackgroundPaint</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">LegendTextPaint</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">LegendTextSize</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">DrawMarginFrame</strong> .  ]]>
+            </x:String>
+            <x:String>
+                <![CDATA[   <strong style="color:blue">Sections</strong> .  ]]>
+            </x:String>
+        </x:Array>
+    </app:BasePage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Spacing="20">
-            <Border Padding="15" Style="{x:StaticResource MAUIslandBorderStyle}">
+            <Frame Style="{x:StaticResource DocumentContentFrameStyle}">
                 <Label Text="{x:Binding ControlInformation.ControlDetail}" />
-            </Border>
+            </Frame>
 
-            <Border Style="{x:StaticResource MAUIslandBorderStyle}">
-                <lvc:CartesianChart
+            <Frame Style="{x:StaticResource DocumentContentFrameStyle}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Style="{x:StaticResource DocumentSectionTitleStyle}" Text="Setup LiveCharts2" />
+                    <VerticalStackLayout>
+                        <Label Text="{x:Binding SetupDescription}"/>
+                        <Label Text="{x:Binding XamlNamespace}" TextColor="Blue"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Style="{x:StaticResource DocumentContentFrameStyle}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Therefore the following:"/>
+                    <app:SourceCodeExpander CodeType="Xaml" Code="{x:Binding FullNamepaceExampleBefore}" />
+                    <Label Text="Would be modified to include the xmlns as follows:"/>
+                    <app:SourceCodeExpander CodeType="Xaml" Code="{x:Binding FullNamepaceExampleAfter}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Style="{x:StaticResource DocumentContentFrameStyle}">
+                <lc2:CartesianChart
                     HeightRequest="300"
                     LegendPosition="Right"
                     Series="{Binding Series}"
                     XAxes="{Binding XAxes}" />
-            </Border>
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
 </app:BasePage>

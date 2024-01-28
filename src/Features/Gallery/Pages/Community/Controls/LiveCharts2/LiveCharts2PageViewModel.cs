@@ -46,6 +46,31 @@ public partial class LiveCharts2PageViewModel : NavigationAwareBaseViewModel
             MinStep = 1
         }
     };
+
+    [ObservableProperty]
+    string setupDescription =
+        "In order to use the LiveCharts2 you would like to install LiveChartsCore.SkiaSharpView.Maui from NuGet. After that, in XAML, the following xmlns needs to be added into your page or view:";
+
+    [ObservableProperty]
+    string xamlNamespace =
+        "xmlns:lc2=\"clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui\"";
+
+    [ObservableProperty]
+    string fullNamepaceExampleBefore =
+        "<ContentPage\r\n" +
+        "    x:Class=\"MAUIsland.MediaElementPage\"\r\n" +
+        "    xmlns=\"http://schemas.microsoft.com/dotnet/2021/maui\"\r\n" +
+        "    xmlns:x=\"http://schemas.microsoft.com/winfx/2009/xaml\"\r\n" +
+        "</ContentPage>";
+
+    [ObservableProperty]
+    string fullNamepaceExampleAfter =
+        "<ContentPage\r\n" +
+        "    x:Class=\"MAUIsland.MediaElementPage\"\r\n" +
+        "    xmlns=\"http://schemas.microsoft.com/dotnet/2021/maui\"\r\n" +
+        "    xmlns:x=\"http://schemas.microsoft.com/winfx/2009/xaml\"\r\n" +
+        "    xmlns:lc2=\"clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui\"\r\n" +
+        "</ContentPage>";
     #endregion
 
     #region [ Overrides ]
@@ -54,6 +79,8 @@ public partial class LiveCharts2PageViewModel : NavigationAwareBaseViewModel
         base.OnInit(query);
 
         ControlInformation = query.GetData<IGalleryCardInfo>();
+
+        LoadDataAsync().FireAndForget();
 
     }
     #endregion
@@ -64,5 +91,15 @@ public partial class LiveCharts2PageViewModel : NavigationAwareBaseViewModel
     Task OpenUrlAsync(string url)
         => AppNavigator.OpenUrlAsync(url);
 
+    [RelayCommand]
+    Task OpenCartesianChartControlUrlAsync()
+        => AppNavigator.OpenUrlAsync("https://livecharts.dev/docs/Maui/2.0.0-rc2/CartesianChart.Cartesian%20chart%20control");
+
+    #endregion
+
+    #region [ Data ]
+    private async Task LoadDataAsync()
+    {
+    }
     #endregion
 }
