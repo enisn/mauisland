@@ -5,7 +5,7 @@
         x:Class="MAUIsland.TextFieldPage"
         xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
         xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
-        BindingContext="{uranium:Inject Type={x:Type app:TextFieldPageViewModel}}"
+        BindingContext="{uranium:Inject {x:Type app:TextFieldPageViewModel}}"
         x:DataType="app:TextFieldPageViewModel"
         Title="TextFieldPage">
     <app:BasePage.Resources>
