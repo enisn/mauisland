@@ -8,3 +8,4 @@ global using System.Diagnostics.CodeAnalysis;
 global using System.Globalization;
 global using System.Linq;
 global using System.Windows.Input;
+global using Keyboard = Microsoft.Maui.Keyboard;

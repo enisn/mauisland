@@ -19,7 +19,8 @@
 	<!-- Versions -->
 	<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 	<ApplicationVersion>1</ApplicationVersion>
-	<UraniumUIVersion>2.7.4</UraniumUIVersion>
+	<MauiVersion>8.0.7</MauiVersion>
+	<UraniumUIVersion>2.8.0-pre.4</UraniumUIVersion>
 
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -92,6 +93,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Octokit" Version="9.1.1" />
 		<PackageReference Include="OverFlower" Version="0.0.3" />
+		<PackageReference Include="ReactiveUI" Version="19.5.41" />
 		<PackageReference Include="Refit" Version="7.0.0" />
 		<PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
 		<PackageReference Include="Refit.Newtonsoft.Json" Version="7.0.0" />
@@ -126,6 +128,10 @@
 		<PackageReference Include="UraniumUI.Material" Version="$(UraniumUIVersion)" />
 		<PackageReference Include="UraniumUI.WebComponents" Version="$(UraniumUIVersion)" />
 		<PackageReference Include="UraniumUI.Icons.SegoeFluent" Version="$(UraniumUIVersion)" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<MauiAsset Include="$(NuGetPackageRoot)\uraniumui.webcomponents\$(UraniumUIVersion)\content\Resources\Raw\**\*.*" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -459,8 +465,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.6" />
-	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 	</ItemGroup>
 
 </Project>
