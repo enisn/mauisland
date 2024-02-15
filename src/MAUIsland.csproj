@@ -19,6 +19,7 @@
 	<!-- Versions -->
 	<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 	<ApplicationVersion>1</ApplicationVersion>
+	<UraniumUIVersion>2.7.4</UraniumUIVersion>
 
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -68,6 +69,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="appsettings.Development.json" />
+	  <None Remove="Resources\Raw\codeview.html" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -120,6 +122,10 @@
 		<PackageReference Include="Syncfusion.Maui.TabView" Version="22.1.38" />
 		<PackageReference Include="ZXing.Net.Maui" Version="0.4.0" />
 		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
+		<PackageReference Include="UraniumUI" Version="$(UraniumUIVersion)" />
+		<PackageReference Include="UraniumUI.Material" Version="$(UraniumUIVersion)" />
+		<PackageReference Include="UraniumUI.WebComponents" Version="$(UraniumUIVersion)" />
+		<PackageReference Include="UraniumUI.Icons.SegoeFluent" Version="$(UraniumUIVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>

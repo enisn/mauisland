@@ -1,4 +1,7 @@
-﻿namespace MAUIsland;
+﻿using UraniumUI;
+using UraniumUI.Resources;
+
+namespace MAUIsland;
 
 public class ControlsService : IControlsService
 {
@@ -87,6 +90,20 @@ public class ControlsService : IControlsService
             Banner = "materialui_banner.png",
             ProviderUrl = "https://mdc-maui.github.io/",
             Description = "Material design components for .NET MAUI. Material Design is a design language developed by Google that aims to provide a consistent user experience across all platforms and devices. It is guided by print-based design elements such as typography, grids, space, scale, color, and imagery to create hierarchy, meaning, and focus that immerse the user in the experience. Material Design adopts tools from the field of print design, like baseline grids and structural templates, encouraging consistency across environments by repeating visual elements, structural grids, and spacing across platforms and screen sizes. These layouts scale to fit any screen size, which simplifies the process of creating scalable apps."
+        },
+        new()
+        {
+            Id = nameof(UraniumUI),
+            Name = ControlGroupInfo.UraniumUIComponent,
+            Title = "UraniumUI",
+            Version = typeof(UraniumBindableObject).Assembly.GetName().Version.ToString(),
+            BrandColor = Color.FromArgb("#52D681"),
+            ButtonTextColor = Colors.White,
+            IconUrl = "https://github.com/enisn/UraniumUI/raw/develop/art/logo_128.png",
+            Author = "enisn",
+            Banner = "https://github.com/enisn/UraniumUI/raw/develop/art/github-social-preview.png",
+            ProviderUrl = "https://enisn-projects.io/docs/en/uranium/latest/",
+            Description = "Uranium is a Free & Open-Source UI Kit for .NET MAUI. It provides a set of controls and utilities to build modern applications. It is built on top of the .NET MAUI infrastructure and provides a set of controls and layouts to build modern UIs. It also provides infrastructure for building custom controls and themes on it.",
         }
     };
 

@@ -47,4 +47,5 @@ public partial class ControlGroupInfo : BaseModel
     public const string CommunityToolkit = nameof(CommunityToolkit);
     public const string GitHubCommunity = nameof(GitHubCommunity);
     public const string MaterialComponent = nameof(MaterialComponent);
+    public const string UraniumUIComponent = nameof(UraniumUIComponent);
 }

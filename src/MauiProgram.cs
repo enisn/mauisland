@@ -11,6 +11,8 @@ using Refit;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using Syncfusion.Maui.Core.Hosting;
 using System.Reflection;
+using UraniumUI;
+using UraniumUI.Material.Controls;
 using Xe.AcrylicView;
 using ZXing.Net.Maui.Controls;
 
@@ -37,6 +39,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("FluentSystemIcons-Regular.ttf", FontNames.FluentSystemIconsRegular);
+                fonts.AddFluentIconFonts();
             })
             .UseMaterialComponents()
             .ConfigureEssentials(essentials =>
@@ -51,7 +54,12 @@ public static class MauiProgram
             .RegisterRealTimeConnection(isLocal)
             .GetAppSettings()
             .ConfigureSyncfusionCore()
-            .UseBarcodeReader();
+            .UseBarcodeReader()
+            .UseUraniumUI()
+            .UseUraniumUIMaterial()
+            .UseUraniumUIWebComponents();
+
+        builder.Services.AddSingleton<IColorPicker, ColorPicker>();
 
         DependencyService.Register<IMrIncreadibleMemeService, MrIncreadibleMemeService>();
 
